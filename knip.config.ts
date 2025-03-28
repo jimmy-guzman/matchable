@@ -6,4 +6,5 @@ export default {
     "@commitlint/config-conventional",
     "commitlint",
   ],
+  ignoreExportsUsedInFile: true,
 } satisfies KnipConfig;
