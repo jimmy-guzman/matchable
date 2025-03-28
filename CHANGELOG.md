@@ -1,3 +1,11 @@
+# 1.0.0 (2025-03-28)
+
+
+### Features
+
+* ✨ initial release of `matchable` ([2409c7a](https://github.com/jimmy-guzman/matchable/commit/2409c7ad14c782796537dc10abe1be36370533cd))
+* ✨ setup npm package ([6eb8227](https://github.com/jimmy-guzman/matchable/commit/6eb8227a4e5ba2ba4a66a95122c181d92dae0c66))
+
 # [1.0.0-alpha.2](https://github.com/jimmy-guzman/matchable/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2025-03-28)
 
 
