@@ -26,22 +26,23 @@ import type { MatchableOf, MatchWithDefault } from "./types";
 export function group<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- it's okay
   T extends { match: (value: any, handlers: any) => any },
+  U extends MatchableOf<T>,
   R,
 >(
   matchable: T & { _tags: readonly string[] },
-  handlers: Partial<
-    Record<MatchableOf<T>["tag"], (value: MatchableOf<T>) => R>
-  > & {
-    default?: (value: MatchableOf<T>) => R;
+  handlers: {
+    [K in Exclude<U["tag"], "default">]?: (value: Extract<U, { tag: K }>) => R;
+  } & {
+    default?: (value: U) => R;
   },
-): MatchWithDefault<MatchableOf<T>, R> {
-  const merged: Partial<Record<string, (value: MatchableOf<T>) => R>> = {};
+): MatchWithDefault<U, R> {
+  const merged: Partial<Record<string, (value: U) => R>> = {};
 
-  for (const tag of matchable._tags as MatchableOf<T>["tag"][]) {
+  for (const tag of matchable._tags as U["tag"][]) {
     const handler = handlers[tag];
 
     if (handler) {
-      merged[tag] = handler;
+      merged[tag] = handler as (value: U) => R;
     }
   }
 
@@ -49,5 +50,5 @@ export function group<
     merged.default = handlers.default;
   }
 
-  return merged as MatchWithDefault<MatchableOf<T>, R>;
+  return merged as MatchWithDefault<U, R>;
 }
