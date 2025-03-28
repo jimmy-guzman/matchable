@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/jimmy-guzman/matchable/compare/v1.0.0...v1.0.1) (2025-03-28)
+
+
+### Bug Fixes
+
+* 🐛 add missing `description` and `keywords` ([#2](https://github.com/jimmy-guzman/matchable/issues/2)) ([d286a2e](https://github.com/jimmy-guzman/matchable/commit/d286a2e56fdecbed2fefdff7752f35690ff8b3e9))
+
 # 1.0.0 (2025-03-28)
 
 
