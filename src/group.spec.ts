@@ -127,4 +127,28 @@ describe("group", () => {
       Status.match(rogue, handlers);
     }).toThrow("Unhandled tag: Unknown");
   });
+
+  it("should infer correct payload types per tag", () => {
+    const handler = group(Status, {
+      error: (state) => {
+        state.message.toLowerCase();
+        // @ts-expect-error -- this is okay due to testing
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions  -- this is okay due to testing
+        state.data;
+
+        return "err";
+      },
+      success: (state) => {
+        state.data.toUpperCase();
+        // @ts-expect-error -- this is okay due to testing
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions  -- this is okay due to testing
+        state.message;
+
+        return "ok";
+      },
+    });
+
+    expect(handler.success?.({ data: "hi", tag: "success" })).toBe("ok");
+    expect(handler.error?.({ message: "fail", tag: "error" })).toBe("err");
+  });
 });
