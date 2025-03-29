@@ -1,6 +1,6 @@
 {
   "name": "matchable",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A utility to define and match on tagged unions (like enums with payloads) — safely.",
   "keywords": [
     "tagged-union",

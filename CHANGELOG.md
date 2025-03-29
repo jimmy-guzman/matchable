@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jimmy-guzman/matchable/compare/v1.0.1...v1.1.0) (2025-03-29)
+
+
+### Features
+
+* ✨ improve `group()` handler types to narrow by tag ([#3](https://github.com/jimmy-guzman/matchable/issues/3)) ([4a678f8](https://github.com/jimmy-guzman/matchable/commit/4a678f856248993d9aef8c40982b1cc68800367f))
+
 ## [1.0.1](https://github.com/jimmy-guzman/matchable/compare/v1.0.0...v1.0.1) (2025-03-28)
 
 
